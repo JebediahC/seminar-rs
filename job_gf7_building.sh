@@ -9,7 +9,7 @@
 
 echo "Start on $(hostname) at $(date)"  # Run outside of srun
 
-unset SLURM_JOB_IDi
+unset SLURM_JOB_ID
 
 export SPLIT=small_1_32
 
