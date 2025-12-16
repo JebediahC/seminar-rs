@@ -9,7 +9,9 @@
 
 echo "Start on $(hostname) at $(date)"  # Run outside of srun
 
-unset SLURM_JOB_ID
+unset SLURM_JOB_IDi
+
+export SPLIT=small_1_32
 
 # enroot import docker://nvcr.io/nvidia/pytorch:25.11-py3
 
