@@ -156,6 +156,75 @@ def main():
     print(f"  Created: {unlabeled_64_file}")
     print(f"    Unlabeled entries: {len(unlabeled_64):,}")
     
+    # 5-1. Generate 1_16 split
+    print("\n" + "=" * 60)
+    print("Generating '1_16' split (1/16 labeled, 15/16 unlabeled)...")
+    labeled_16, unlabeled_16 = generate_labeled_unlabeled_split(train_images, 16, "Train")
+    
+    split_16_dir = output_dir / "1_16"
+    split_16_dir.mkdir(exist_ok=True)
+    
+    labeled_16_file = split_16_dir / "labeled.txt"
+    with open(labeled_16_file, "w") as f:
+        for img in labeled_16:
+            f.write(create_split_line(img, "Train") + "\n")
+    
+    unlabeled_16_file = split_16_dir / "unlabeled.txt"
+    with open(unlabeled_16_file, "w") as f:
+        for img in unlabeled_16:
+            f.write(create_split_line(img, "Train") + "\n")
+    
+    print(f"  Created: {labeled_16_file}")
+    print(f"    Labeled entries:   {len(labeled_16):,}")
+    print(f"  Created: {unlabeled_16_file}")
+    print(f"    Unlabeled entries: {len(unlabeled_16):,}")
+
+    # 5-2. Generate 1_8 split
+    print("\n" + "=" * 60)
+    print("Generating '1_8' split (1/8 labeled, 7/8 unlabeled)...")
+    labeled_8, unlabeled_8 = generate_labeled_unlabeled_split(train_images, 8, "Train")
+    
+    split_8_dir = output_dir / "1_8"
+    split_8_dir.mkdir(exist_ok=True)
+    
+    labeled_8_file = split_8_dir / "labeled.txt"
+    with open(labeled_8_file, "w") as f:
+        for img in labeled_8:
+            f.write(create_split_line(img, "Train") + "\n")
+    
+    unlabeled_8_file = split_8_dir / "unlabeled.txt"
+    with open(unlabeled_8_file, "w") as f:
+        for img in unlabeled_8:
+            f.write(create_split_line(img, "Train") + "\n")
+    
+    print(f"  Created: {labeled_8_file}")
+    print(f"    Labeled entries:   {len(labeled_8):,}")
+    print(f"  Created: {unlabeled_8_file}")
+    print(f"    Unlabeled entries: {len(unlabeled_8):,}")
+
+    # 5-3. Generate 1_4 split
+    print("\n" + "=" * 60)
+    print("Generating '1_4' split (1/4 labeled, 3/4 unlabeled)...")
+    labeled_4, unlabeled_4 = generate_labeled_unlabeled_split(train_images, 4, "Train")
+    
+    split_4_dir = output_dir / "1_4"
+    split_4_dir.mkdir(exist_ok=True)
+    
+    labeled_4_file = split_4_dir / "labeled.txt"
+    with open(labeled_4_file, "w") as f:
+        for img in labeled_4:
+            f.write(create_split_line(img, "Train") + "\n")
+    
+    unlabeled_4_file = split_4_dir / "unlabeled.txt"
+    with open(unlabeled_4_file, "w") as f:
+        for img in unlabeled_4:
+            f.write(create_split_line(img, "Train") + "\n")
+    
+    print(f"  Created: {labeled_4_file}")
+    print(f"    Labeled entries:   {len(labeled_4):,}")
+    print(f"  Created: {unlabeled_4_file}")
+    print(f"    Unlabeled entries: {len(unlabeled_4):,}")
+
     # 6. Generate small_1_32 split (1/100 of 1_32 data for testing)
     print("\n" + "=" * 60)
     print("Generating 'small_1_32' split (1/100 of data for testing)...")
